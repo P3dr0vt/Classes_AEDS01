@@ -1,0 +1,24 @@
+1) Em uma empresa X o salário mensal de um Funcionário é calculado pelo valor da hora trabalhada vezes o número 
+de horas trabalhadas no mês vezes um fator referente ao cargo: 1. Gerente, fator = 2.5 ou 2. Assistente, fator = 
+1.5. A isto aplica-se 11% de desconto. Faça a classe Funcionario de forma que o código abaixo seja possível: 
+ 
+int main() 
+{ 
+    string nome, cpf; 
+    int cargo = 0; 
+    cout<<”Digite o nome:”<<endl; 
+    cin>>nome; 
+    cout<<”Digite o CPF:”<<endl; 
+    cin>>cpf; 
+    cout<<”Digite o cargo: 1. Gerente | 2. Assistente”<<endl; 
+    cin>>cargo; 
+    Funcionario funcionario(nome, cpf); 
+    funcionario.setValorHoraTrabalhada(15.0); 
+    funcionario.setNumeroHorasTrabalhadas(40); 
+     
+    cout<<"Nome: "<<funcionario.getNome()<<endl; 
+    cout<<"CPF: "<<funcionario.getCPF()<<endl; 
+    cout<<"Salario: "<<funcionario.salario(cargo)<<endl; 
+ 
+    return 0; 
+} 
