@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+class Funcionario{
+    private:
+    string name,pID;
+    public:
+    Funcionario(string nome, string cpf){
+        name = nome;
+        pID = cpf;
+    }
+    string getNome(){
+        return name;
+    }
+    string getCPF(){
+        return pID;
+    }
+    int horas;
+    double val;
+    void setNumeroHorasTrabalhadas(int hours){
+        horas = hours;
+    }
+    void setValorHoraTrabalhada(double value){
+        val = value;
+    }
+    double salario(int role){
+        double fator;
+        if(role == 1){
+            fator = 2.5;
+        }else{
+            fator = 1.5;
+        }
+        double salSemImposto = horas*val*fator;
+        return salSemImposto - (salSemImposto*0.11);
+    }
+};
+int main() 
+{ 
+    string nome, cpf; 
+    int cargo = 0; 
+    cout<<"Digite o nome:"<<endl; 
+    cin>>nome; 
+    cout<<"Digite o CPF:"<<endl; 
+    cin>>cpf; 
+    cout<<"Digite o cargo: 1. Gerente | 2. Assistente"<<endl; 
+    cin>>cargo; 
+    Funcionario funcionario(nome, cpf); 
+    funcionario.setValorHoraTrabalhada(15.0); 
+    funcionario.setNumeroHorasTrabalhadas(40); 
+     
+    cout<<"Nome: "<<funcionario.getNome()<<endl; 
+    cout<<"CPF: "<<funcionario.getCPF()<<endl; 
+    cout<<"Salario: "<<funcionario.salario(cargo)<<endl; 
+ 
+    return 0; 
+}
